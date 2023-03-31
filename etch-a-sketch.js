@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
+
 function createGrid(x) {
   for (let i = 0; i < x; i++) {
     const div = document.createElement("div");
@@ -9,6 +10,11 @@ function createGrid(x) {
     }
     gridContainer.appendChild(div);
   }
+}
+
+function clearGrid() {
+  let rows = document.querySelectorAll(".row-container");
+  rows.forEach(row => row.remove());
 }
 
 function askForSize() {
@@ -22,6 +28,7 @@ function askForSize() {
     askForSize();
   }
   else {
+    clearGrid();
     createGrid(size);
   }
 }
