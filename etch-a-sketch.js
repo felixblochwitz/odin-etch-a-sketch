@@ -36,7 +36,7 @@ function askForSize() {
   }
 }
 
-createGrid(34);
+createGrid(16);
 
 const btn = document.querySelector("button");
 btn.addEventListener("click", askForSize);
