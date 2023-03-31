@@ -14,20 +14,23 @@ function createGrid(x) {
 
 function clearGrid() {
   let rows = document.querySelectorAll(".row-container");
-  rows.forEach(row => row.remove());
+  rows.forEach((row) => row.remove());
 }
 
 function askForSize() {
-  let input = prompt();
+  let input = prompt(
+    "Please enter the number of squares by squares the grid should be:"
+  );
   let size = parseInt(input);
   if (input === null) {
     return;
-  }
-  else if (isNaN(size)) {
-    alert("please enter a number");
+  } else if (isNaN(size)) {
+    alert("Please enter a number:");
     askForSize();
-  }
-  else {
+  } else if (size > 100) {
+    alert("Please choose a size of max 100!");
+    askForSize();
+  } else {
     clearGrid();
     createGrid(size);
   }
@@ -37,4 +40,3 @@ createGrid(34);
 
 const btn = document.querySelector("button");
 btn.addEventListener("click", askForSize);
-
